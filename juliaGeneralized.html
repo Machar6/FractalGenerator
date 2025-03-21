@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fractal generator | Generalized Julia set</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.1/math.min.js"></script> 
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/sci-lg-eng-grey.png" alt="muni-sci-logo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link  text-center elevation-2">
+    <img src="dist/img/sci-lg-eng-white.png" alt="Logo SCI MUNI" class="brand-image" style = "opacity: 0.8;">
+      <span class="brand-text font-weight-light">Fractal generator</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+          <a href="./bubbles.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/bubbles1.png" alt="" width="40px"></i>
+          <p>Hyperbolic Components </p>
+            </a>
+          </li>
+          <li class="nav-item menu-close">
+          <a href="#" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/coloring.png" alt="" width="40px"></i>
+          <p>
+                Coloring Methods
+                <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./coloringMethodsJulia.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Julia set</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./coloringMethodsMandelbrot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mandelbrot set</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/algs.png" alt="" width="40px"></i>
+            <p>
+                  Rendering Algorithms
+                  <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsJulia.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Julia set</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsMandelbrot.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mandelbrot set</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <li class="nav-item">
+          <a href="./mandelbrotExploring.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/explorer1.png" alt="" width="40px"></i>
+              <p>
+                Mandelbrot set Explorer
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./mandelbrotGeneralized.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/mGen.png" alt="" width="40px"></i>
+          <p>Generalized Mandelbrot set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./juliaGeneralized.html" class="nav-link active" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/js.png" alt="" width="40px"></i>
+            <p>Generalized Julia set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./buddhabrot.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/buddha.png" alt="" width="40px"></i>
+          <p>Buddhabrot</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper px-5" style = "max-width: 1100px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Generalized Julia set</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Generalized Julia set</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid interactive">
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-12">
+            <!-- Map card -->
+            <div class="card card-primary collapsed-card content-section" id="generalized_julia.js" >
+              <div class="card-header">
+                <h3 class="card-title">General Exponent</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  The <strong>generalized Julia set</strong> is an extension of the classical Julia set. Instead of the standard quadratic function \( f_c(z) = z^2 + c \), we consider a more general family of functions of the form:
+                  $$
+                  f_c(z) = z^d + c,
+                  $$
+                  where \( d \in \mathbb{Q} \) (a rational number), allowing for fractional exponents. The generalized Julia set is defined as the set of complex numbers \( z \) for which the sequence of iterates \( z_{n+1} = f_c(z_n) \), starting from any initial value \( z_0 \), remains bounded for a fixed complex parameter \( c \).
+              </p>
+              <p>
+                  To calculate the powers of complex numbers efficiently, <strong>polar coordinates</strong> are used, as the general power \( z^d \) can be expressed in polar form as:
+                  $$
+                  z^d = |z|^d e^{i d \theta} = |z|^d (\cos(d \theta) + i \sin(d \theta)),
+                  $$
+                  where \( |z| \) is the modulus and \( \theta \) is the argument of \( z \). This representation allows easy computation of both the real and imaginary parts of \( z^d \):
+                  $$
+                  \operatorname{Re}(z^d) = |z|^d \cos(d \theta),
+                  $$
+                  $$
+                  \operatorname{Im}(z^d) = |z|^d \sin(d \theta).
+                  $$
+              </p>
+              <p>
+                  This approach enables the visualization of the generalized Julia set for any rational value of \( d \), producing intricate and diverse fractal structures that depend on the choice of both the parameter \( c \) and the initial value \( z_0 \).
+              </p>
+              
+
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaSinus.js">
+              <div class="card-header">
+                <h3 class="card-title">Sinus</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+              <p>
+                The Julia sets for non-polynomial functions offer a fascinating extension to the classical quadratic mapping \( f(z) = z^2 + c \). In this case, we consider the function:  
+                \[
+                f(z) = c \sin(z),
+                \]
+                where \( c \) is a complex constant. The process is similar to the quadratic mapping: we select a constant \( c \), and for each point \( z_0 \), we iterate the function \( f(z) \). The behavior of the sequence of points produced during the iterations determines whether \( z_0 \) belongs to the Julia set.  
+              </p>
+              <p>
+                A notable difference lies in determining whether a point diverges before reaching the maximum number of iterations. Instead of checking the magnitude of \( z \), we can reliably determine divergence using only the value of \( z_x \) (real part of $z$), simplifying the computation process. A common choice for the divergence radius is \( r_c = 50 \).  
+              </p>
+              <p>
+                The complex sine function can be expressed as:  
+                \[
+                c \sin(z) = (c_x + i c_y)(\sin(z_x) \cosh(z_y) + i \cos(z_x) \sinh(z_y)),
+                \]
+                where \( \cosh \) and \( \sinh \) are the hyperbolic cosine and sine functions, respectively. This representation can be split into the real and imaginary parts, which is advantageous for implementation:  
+                \[
+                \text{Re}(c \sin(z)) = c_x \sin(z_x) \cosh(z_y) - c_y \cos(z_x) \sinh(z_y),
+                \]
+                \[
+                \text{Im}(c \sin(z)) = c_x \cos(z_x) \sinh(z_y) + c_y \sin(z_x) \cosh(z_y).
+                \]
+              </p>  
+                
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaCosinus.js">
+              <div class="card-header">
+                <h3 class="card-title">Cosinus</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+                <p>
+                  The Julia sets for the complex cosine function follow a similar approach to those generated using the sine function. The function is defined as:
+                  \[
+                  f(z) = c \cos(z),
+                  \]
+                  where \( c \) is a complex constant. For a given constant \( c \), the function is iteratively applied to each point \( z_0 \), and the sequence of iterated values determines whether \( z_0 \) belongs to the Julia set.
+              </p>
+              <p>
+                  As with the sine function, divergence can be reliably determined by evaluating only the real part of \( z \) (\( z_x \)), rather than computing the magnitude of \( z \). This simplifies the process of determining whether a point diverges before reaching the maximum number of iterations. A common choice for the divergence radius is \( r_c = 50 \).
+              </p>
+              <p>
+                  The complex cosine function is expressed as:
+                  \[
+                  c \cos(z) = (c_x + i c_y) \left( \cos(z_x) \cosh(z_y) - i \sin(z_x) \sinh(z_y) \right),
+                  \]
+                  where \( \cosh \) and \( \sinh \) are the hyperbolic cosine and sine functions, respectively. This can be broken into real and imaginary parts for implementation purposes:
+                  \[
+                  \text{Re}(c \cos(z)) = c_x \cos(z_x) \cosh(z_y) + c_y \sin(z_x) \sinh(z_y),
+                  \]
+                  \[
+                  \text{Im}(c \cos(z)) = -c_x \sin(z_x) \sinh(z_y) + c_y \cos(z_x) \cosh(z_y).
+                  \]
+              </p>
+              <p>
+                  By utilizing only the real part \( z_x \), divergence tests for the cosine function are both efficient and computationally straightforward.
+              </p>
+              
+                
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaExponencial.js">
+              <div class="card-header">
+                <h3 class="card-title">Generalized Julia set</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  The Julia sets for the exponential function provide another fascinating generalization of the classical quadratic and trigonometric mappings. The function is defined as:
+                  \[
+                  f(z) = \lambda e^z,
+                  \]
+                  where \( \lambda = \lambda_x + i \lambda_y \). The real and imaginary parts of this function are expressed as follows:
+                  \[
+                  \begin{aligned}
+                  \text{Re}(\lambda e^z) &= \alpha e^{u_x} (\lambda_x \cos(u_y) - \lambda_y \sin(u_y)) + (1 - \alpha) \text{Re}(z_0), \\
+                  \text{Im}(\lambda e^z) &= \alpha e^{u_x} (\lambda_x \sin(u_y) + \lambda_y \cos(u_y)) + (1 - \alpha) \text{Im}(z_0),
+                  \end{aligned}
+                  \]
+                  where \( \alpha \in [0,1] \) is a weight parameter and \( z_0 \) represents the initial value.
+              </p>
+              <p>
+                  The variables \( u_x \) and \( u_y \) are transformations involving \( \lambda_x \), \( \lambda_y \), and another parameter \( \beta \):
+                  \[
+                  \begin{aligned}
+                  u_x &= \beta \exp(z_x) (\lambda_x \cos(z_y) - \lambda_y \sin(z_y)) + (1 - \beta) z_x, \\
+                  u_y &= \beta \exp(z_x) (\lambda_x \sin(z_y) + \lambda_y \cos(z_y)) + (1 - \beta) z_y.
+                  \end{aligned}
+                  \]
+              </p>
+              <p>
+                  The iterative loop in the code executes in the usual manner: a point either reaches the maximum number of iterations or its real part exceeds the divergence radius. 
+              </p>
+              <p>
+                  For visualization, a special color palette is used to highlight the rate of divergence of points:
+                  \[
+                  \text{Color} = 
+                  \begin{cases}
+                  \text{Red} & \text{if } \texttt{iter} < 0.2 \cdot \texttt{maxIter}, \\
+                  \text{Orange} & \text{if } 0.2 \cdot \texttt{maxIter} \leq \texttt{iter} < 0.4 \cdot \texttt{maxIter}, \\
+                  \text{Yellow} & \text{if } 0.4 \cdot \texttt{maxIter} \leq \texttt{iter} < 0.6 \cdot \texttt{maxIter}, \\
+                  \text{Green} & \text{if } 0.6 \cdot \texttt{maxIter} \leq \texttt{iter} < 0.8 \cdot \texttt{maxIter}, \\
+                  \text{Blue} & \text{if } 0.8 \cdot \texttt{maxIter} \leq \texttt{iter} < 0.9 \cdot \texttt{maxIter}, \\
+                  \text{Purple} & \text{if } 0.9 \cdot \texttt{maxIter} \leq \texttt{iter} < \texttt{maxIter}, \\
+                  \text{Black} & \text{if } \texttt{iter} == \texttt{maxIter}.
+                  \end{cases}
+                  \]
+                  This palette enhances the visual representation by distinctly coloring regions based on the speed of divergence, making the structure of the Julia set more apparent.
+              </p>
+              
+
+              </div>
+            
+            </div> 
+            
+            <div class="card card-primary collapsed-card content-section" id="def">
+              <div class="card-header">
+                <h3 class="card-title">Generalized Julia set</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                  <p>
+                    Choose an iteration function for the generalized Julia set from the dropdown menu below to explore each generalization in detail.
+                  </p>
+
+              </div>
+            
+            </div> 
+            
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title">Description</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="descriptionContainer">
+                
+        
+              </div>
+            
+            </div> 
+
+            <div class="card bg-gradient-primary interactive">
+              <div class="card-header border-1 px-4">
+              <div class="container px-4">
+    <!-- Select -->
+                <div class="form-group selector">
+                  <select class="form-control" id="scriptSelector">
+                    <option value="def" disabled selected>Choose a function for the Julia set</option>
+                    <option value="generalized_julia.js">General Exponent</option>
+                    <option value="juliaSinus.js">Sinus</option>
+                    <option value="juliaCosinus.js">Cosinus</option>
+                    <option value="juliaExponencial.js">Exponential</option>
+                  </select>
+                </div>
+                <div id="optionsContainer">
+
+                </div> 
+              </div>
+            </div>
+             
+                <div class="card-body" style = "display: flex; justify-content: center; padding-bottom: 15px">
+                <canvas class = "col-12 mandelbrot" style = "background-color: aliceblue; padding: 0; max-width: 800px; max-height: 800px" height="800px" width="800px">The browser doesn't support the canvas element</canvas>  
+              <script src = "scripty/loadingScriptJuliaGen.js"></script>
+              <div id="scriptContainer"></div>
+              </div>
+              </div>
+
+              <!-- /.card-body-->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2024 Jan Macharáček</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<style>
+  .content-section {
+      display: none; /* Skryje všechny oblasti na začátku */
+  }
+</style>
+<script>
+  // Funkce, která skryje všechny sekce a zobrazí tu vybranou
+  document.getElementById("scriptSelector").addEventListener("change", function() {
+      // Skrytí všech sekcí
+      var sections = document.querySelectorAll(".content-section");
+      sections.forEach(function(section) {
+          section.style.display = "none";
+      });
+
+      // Zobrazení vybrané sekce
+      var selectedSection = document.getElementById(this.value);
+      if (selectedSection) {
+          selectedSection.style.display = "block";
+      }
+  });
+
+  // Spustí funkci při načtení stránky, aby byla zobrazená sekce podle výběru
+  window.onload = function() {
+      document.getElementById("scriptSelector").dispatchEvent(new Event("change"));
+  };
+</script>
+</body>
+</html>

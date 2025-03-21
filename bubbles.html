@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fractal generator | Hyperbolic Components </title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.1/math.min.js"></script> 
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/sci-lg-eng-grey.png" alt="muni-sci-logo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link  text-center elevation-2">
+    <img src="dist/img/sci-lg-eng-white.png" alt="Logo SCI MUNI" class="brand-image" style = "opacity: 0.8;">
+      <span class="brand-text font-weight-light">Fractal generator</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="./bubbles.html" class="nav-link active" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/bubbles1.png" alt="" width="40px"></i>
+            <p>Hyperbolic Components </p>
+            </a>
+          </li>
+          <li class="nav-item menu-close">
+          <a href="#" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/coloring.png" alt="" width="40px"></i>
+              <p>
+                Coloring Methods
+                <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./coloringMethodsJulia.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Julia set</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./coloringMethodsMandelbrot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mandelbrot set</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link" style = "padding-left: 10px">
+              <i class="nav-icon"><img src="dist/img/algs.png" alt="" width="40px"></i>
+                <p>
+                  Rendering Algorithms
+                  <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsJulia.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Julia set</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsMandelbrot.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mandelbrot set</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <li class="nav-item">
+          <a href="./mandelbrotExploring.html" class="nav-link " style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/explorer1.png" alt="" width="40px"></i>
+              <p>
+                Mandelbrot set Explorer
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./mandelbrotGeneralized.html" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/mGen.png" alt="" width="40px"></i>
+            <p>Generalized Mandelbrot set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./juliaGeneralized.html" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/js.png" alt="" width="40px"></i>
+            <p>Generalized Julia set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./buddhabrot.html" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/buddha.png" alt="" width="40px"></i>
+            <p>Buddhabrot</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper px-5" style = "max-width: 1100px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Hyperbolic Components </h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Hyperbolic Components </li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid interactive">
+        <div class="card card-primary collapsed-card">
+          <div class="card-header">
+            <h3 class="card-title">Roots of unity</h3>
+  
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <!-- /.card-tools -->
+          </div>
+          <!-- /.card-header -->
+          <div class = "card-body" id="methodContainer">
+            <p>            The visualization shows, for a given period \(n\), the \(n\)-th complex roots of unity, and also $k$-th roots of unity where $k|n$ and $k < n$. The roots are evenly distributed on the unit circle in the complex plane. Each root is labeled with its corresponding \(n\)-value for easy identification.
+            </p>
+<p>
+  The positions of the \(n\)-th roots of unity are given by the formula:  
+\[
+z_k = e^{i \frac{2k\pi}{n}}, \quad k = 0, 1, 2, \ldots, n-1.
+\]
+
+The transformation from the unit circle to the boundary of the cardioid, corresponding to the bifurcation points of the Mandelbrot set, is described by the following equations:
+\[
+z_x(\theta) = \frac{1}{2} \cos(\theta) - \frac{1}{4} \cos(2\theta),
+\]
+\[
+z_y(\theta) = \frac{1}{2} \sin(\theta) - \frac{1}{4} \sin(2\theta),
+\]
+where \(z_x\) and \(z_y\) are the real and imaginary components of the complex number \(z\), and \(\theta\) is the angle corresponding to the root.
+
+</p>
+<p>
+
+  These transformations illustrate how the \(n\)-th roots of unity map to the bifurcation points of the Mandelbrot set, revealing the relationship between the roots and the set’s hyperbolic components.
+
+</p>
+
+          </div>
+  
+        </div> 
+
+        <div class="card card-primary collapsed-card">
+          <div class="card-header">
+            <h3 class="card-title">Description</h3>
+  
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+              </button>
+            </div>
+            
+          </div>
+          <!-- /.card-header -->
+          <div class = "card-body" id="descriptionContainer">
+         
+              <p>
+                <ul>
+                  <li><strong>Period:</strong> Selects the corresponding \(n\) for the \(n\)-th roots of unity.</li>
+              </ul>
+  
+      
+            </p>
+          </div>
+  
+        </div> 
+
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-12">
+         
+      <div class="container-fluid">
+      <div id="controls">
+      <label for="periodSlider">Period: </label>
+
+        <input type="range" id="periodSlider" min="1" max="20" value="8" step="1">
+        <span id="periodValue" class="badge bg-primary">8</span>
+
+    </div>
+      <div id="canvasContainer" style="text-align: center;">
+        <canvas id="circleCanvas" class = "m-2" width="400" height="400"></canvas>
+        <canvas id="cardioidCanvas" class = "m-2" width="400" height="400"></canvas>
+        <script src = "scripty/unitToCardioid.js"></script>
+
+    </div>
+        </div>
+               </div>
+              <!-- /.card-body-->
+            </div>
+            <!-- /.card -->
+
+
+            <div class="container-fluid interactive">
+              <div class="card card-primary collapsed-card">
+                <div class="card-header">
+                  <h3 class="card-title">Bifurcation points</h3>
+        
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class = "card-body" id="methodContainer1">
+                  <p>
+                    This visualization extends the previous one by adding a transformation of the unit circle into a smaller circle with a radius of $0.25$ and a center at $-1$, representing the period-2 component. The transformations used are:
+                    <p>
+
+                      For component with a period of two, the transformation is simpler, involving a shift of the center to \(-1\) and a change in the radius to \(\frac{1}{4}\). The transformation equations for this case are:
+                      \begin{align*}
+                      z_x(\theta) &= -1 + \frac{1}{4} \cos(\theta),\\
+                      z_y(\theta) &= \frac{1}{4} \sin(\theta).
+                      \end{align*}
+                    </p>
+                  </p>
+                <p>
+                    Only bifurcation points with the exact period $n$ are displayed in this visualization. Unlike the previous version, divisors of $n$(where $k | n$ and $k < n$) are no longer shown, ensuring that only the contact points of the chosen period are visible.
+                </p>
+                
+                </div>
+        
+              </div> 
+      
+              <div class="card card-primary collapsed-card">
+                <div class="card-header">
+                  <h3 class="card-title">Description</h3>
+        
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  
+                </div>
+                <!-- /.card-header -->
+                <div class = "card-body" id="descriptionContainer1">
+               
+                    <p>
+                      <ul>
+                        <li><strong>Period:</strong> Period of hyperbolic components for which the bifurcation points with the cardioid or the period-2 component are displayed.</li>
+                    </ul>
+                            
+            
+                  </p>
+                </div>
+        
+              </div> 
+
+                <!-- /.card-tools -->
+                <br><br>
+                <div class = "options">
+                <label for="periodSlider1">Period: </label>
+
+                  <input type="range" id="periodSlider1" min="1" max="40" value="8">
+                  <span id="periodValue1" class = "badge bg-primary">8</span>
+                </div>
+               <div class="" style = "margin-left: auto; margin-right:auto; padding: 5px;">
+                <canvas class = "col-12 mandelbrot" style = "background-color: aliceblue; padding: 0; max-width: 800px;" height="800" width="800">The browser doesn't support the canvas element</canvas>  
+                <script src = "scripty/mandelbrotAttachedPointsVisual.js"></script>
+
+              </div>
+              <!-- /.card-body-->
+            </div>
+<div class = "interactive">
+
+  <div class="card card-primary collapsed-card">
+    <div class="card-header">
+      <h3 class="card-title">Basins of attraction and Newton's method</h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <!-- /.card-tools -->
+    </div>
+    <!-- /.card-header -->
+    <div class = "card-body" id="methodContainer2">
+     <p>
+      This visualization is based on the following principle: for any point \( c \), located at the center of a hyperbolic component with period \( p \), the magnitude of the point of the critical orbit \( |z_p| \) will return to \( 0 \) after \( p \) iterations. For points in the complex plane, whether inside or outside the Mandelbrot set, that are sufficiently close to the hyperbolic component with period \( p \), \( |z_p| \) reaches a new minimum at the \( p \)-th iteration (except for the initial value \( z_0 = 0 \)). The closer \( |z_p| \) approaches zero after \( p \) iterations, the closer the point \( c \) is to the center of the hyperbolic component.
+    </p>
+    <p>
+      To calculate the precise center of the hyperbolic component corresponding to the basin of attraction, Newton's method is applied. Newton's method is a widely known iterative approach for finding the roots of a holomorphic function \( f(z) \). The iterative formula is defined as follows:
+      
+      \[
+      z_{n+1} = z_n - \frac{f(z_n)}{f'(z_n)},
+      \]
+      
+      where \( f'(z_n) \) is the derivative of the function \( f(z) \) at \( z_n \). This method is particularly effective due to its quadratic convergence rate, which allows it to rapidly refine the estimate of the root.
+    </p>
+    <p> 
+      In this context, \( f(c) \) represents \( z_p(c) \), the \( p \)-th iterate of the critical orbit starting at \( z_0 = 0 \). By using an initial guess for \( c \), Newton's method iteratively improves this value until \( |f(c)| < \epsilon \), where \( \epsilon \) is a predefined tolerance. This ensures an accurate determination of the center of the hyperbolic component.
+    </p>
+    <p>
+      The visualization highlights basins of attraction, with each basin corresponding to a hyperbolic component of the Mandelbrot set. These basins are visualized using the described principle, and the center of the hyperbolic component corresponding to this basin of attraction is calculated with Newton's method.
+    </p>  
+    </div>
+
+  </div> 
+
+  <div class="card card-primary collapsed-card">
+    <div class="card-header">
+      <h3 class="card-title">Description</h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+        </button>
+      </div>
+      
+    </div>
+    <!-- /.card-header -->
+    <div class = "card-body" id="descriptionContainer2">
+   
+        <p>
+          <ul>
+            
+              <li><strong>Arrows:</strong> Use the arrow keys to navigate the canvas in all directions.</li>
+              <li>
+                <strong>Zoom In Button:</strong> Increases the zoom level for a closer view.
+              </li>
+              <li>
+                <strong>Zoom Out Button:</strong> Decreases the zoom level for a wider view.
+              </li>
+              <li>
+                <strong>Reset Button:</strong> Resets the view to the default position.
+              </li>
+             
+              <li><strong>Transparency:</strong> Adjusts the transparency of the Mandelbrot set to make overlapping features more visible.</li>
+            <li>
+              <strong>Rendering Time:</strong> Displays the time taken to render the visualization.
+            </li>
+            <li>
+              <strong>Zoom:</strong> Indicates the zoom level.
+            </li>
+            <li><strong>Center:</strong> Displays the result of the center calculation for the hyperbolic component.</li>
+          </ul>
+
+
+      </p>
+    </div>
+
+  </div> 
+</div>
+            <!-- /.card -->
+            <div class="card bg-gradient-primary interactive">
+
+              <div class="card-header border-1">
+             
+
+  <div class="row px-4">
+        <!-- Pravý sloupec -->
+        <div class="col-12 col-md-2">
+    <div id="mouseCoords" style="position: fixed; pointer-events: none; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 5px; border-radius: 5px; font-size: 14px; z-index: 9999; display: none;"></div>
+      <!-- Šipky pro pohyb -->
+        <div class="circleBase" id="rotateMode">
+          <button id="up" class="btn btn-outline-dark mx-1">
+            <img src="dist/img/down-arrow.png" style="max-height: 20px; transform: rotate(180deg);">
+          </button>
+        <button id="left" class="btn btn-outline-dark mx-1">
+          <img src="dist/img/down-arrow.png" style="max-height: 20px; transform: rotate(90deg);">
+        </button>
+        <button id="down" class="btn btn-outline-dark mx-1">
+          <img src="dist/img/down-arrow.png" style="max-height: 20px;">
+        </button>
+        <button id="right" class="btn btn-outline-dark mx-1">
+          <img src="dist/img/down-arrow.png" style="max-height: 20px; transform: rotate(270deg);">
+        </button>
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-4 text-center px-5 atoms" style = "align-content: end">
+  <div class="d-flex justify-content-center mb-2">
+    <button type="button" class="btn btn-outline-dark mx-1" id="zoomIn">
+      <img src="dist/img/zoom-in.png" style="max-height: 20px;">
+    </button>
+    <button type="button" class="btn btn-outline-dark mx-1" id="zoomOut">
+      <img src="dist/img/zoom-out.png" style="max-height: 20px;">
+    </button>
+  </div>
+  <div>
+    <button type="button" class="btn btn-outline-dark" id="resetView">
+      <strong>Reset</strong>
+    </button>
+  </div>
+</div>
+    <!-- Levý sloupec -->
+    <div class="col-12 col-md-6 row justify-content-end">
+      <!-- Slider pro průhlednost -->
+
+      <div class="d-flex align-items-center justify-content-between">
+  <label for="brightness" class="form-label mb-0" style="margin-right: 10px;">Transparency:</label>
+  <input type="range" class="form-range" id="brightness" min="0" max="1" value="0.2" step="0.1" style="max-width: 30%;">
+  <span id="brightnessVal" class="badge bg-primary" style="margin-left: 10px; margin-right: 10px;">20 %</span>
+  <button type="button" class="btn btn-outline-dark" onclick="apply()" style="max-width: 30%; margin-top: 0;"><img src="dist/img/reload.png" style="max-height: 20px;"></button>
+</div>
+
+      <!-- Rendering time -->
+      <div id="renderTime" class=" col-12" style = "text-align:end;">Rendering time: 0 ms</div>
+      <!-- Zoom informace -->
+      <div id="zoomInfo" class=" col-12" style = "text-align:end;">Zoom: 1.00x</div>
+      <div id="centerCoords" class=" col-12" style = "text-align:end;">Center: 0 + 0i of period 1</div>
+
+      <!-- Tlačítko Apply -->
+    </div>
+          <!-- Tlačítka pro zoom a reset -->
+  </div>
+</div>
+      
+  <div class="card-body" style = "display: flex; justify-content: center; padding-bottom: 15px">
+  <canvas class = "col-12 atomDomains" style = "background-color: aliceblue; padding: 0; max-width: 800px; max-height: 800px" height="800px" width="800px">The browser doesn't support the canvas element</canvas>  
+<script src = "scripty/mandelbrotAtomDomain.js"></script>
+</div>
+</div>
+
+<div class = "interactive">
+  <div class="card card-primary collapsed-card">
+    <div class="card-header">
+      <h3 class="card-title">Hyperbolic components</h3>
+  
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <!-- /.card-tools -->
+    </div>
+    <!-- /.card-header -->
+    <div class = "card-body" id="methodContainer2">
+<p>
+  In the Mandelbrot set, hyperbolic components correspond to roots of polynomials \( P_n(c) = f^n(0) = 0 \), where the degree of \( P_n \) is \( 2^{n-1} \). This suggests that there are \( 2^{n-1} \) solutions, or roots, for each polynomial. However, the number of hyperbolic components does not match this directly due to the fact that components of period \( n \) are also components of periods \( 2n, 3n, 4n, \dots \). For example, a component with period 3 is also a component with period 6, 9, etc.
+</p>
+  <p>
+To account for this, we introduce the term \( U_n \), which represents the number of components with exactly period \( n \). The number of hyperbolic components of period \( n \) is given by:
+
+\[
+U_n = 2^{n-1} - p,
+\]
+where \( p \) is the sum of hyperbolic components for all divisors \( k \) of \( n \), with \( k < n \):
+
+\[
+p = \sum_{k|n,\, k < n} U_k.
+\]
+</p>
+<p>
+This formula gives the correct number of hyperbolic components observed in the Mandelbrot set.
+<p>
+The key idea is that the polynomial \( P_n(c) \) is divisible by all polynomials \( P_k(c) \) where \( k \) divides \( n \). Therefore, to isolate the components of exactly period \( n \), we define a reduced polynomial \( Q_n(c) \), which eliminates solutions for divisors of \( n \):
+
+\[
+ Q_{n}(c) = \frac{P_{N}(c)}{\prod_{k|n,\, k < n} Q_{k}(c)} \quad \text{for} \quad Q_{1}(c) = P_{1}(c).
+\]
+
+Solving \( Q_n(c) = 0 \) gives the roots, or the centers, of the hyperbolic components for a given period. These roots will either be real or complex conjugates due to the symmetry of the Mandelbrot set along the real axis. 
+</p>
+    </div>
+  
+  </div> 
+  
+  <div class="card card-primary collapsed-card">
+    <div class="card-header">
+      <h3 class="card-title">Description</h3>
+  
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+        </button>
+      </div>
+      
+    </div>
+    <!-- /.card-header -->
+    <div class = "card-body" id="descriptionContainer2">
+   
+        <p>
+          <ul>
+            <li>
+              <strong>Rendering Time:</strong> Displays the time taken to render the visualization.
+            </li>
+            <li>
+              <strong>Number of hyperbolic components for period:</strong> Number of hyperbolic components for period for given period.
+            </li>
+            <li><strong>Period:</strong> Period of hyperbolic components.</li>
+            <li>
+              <strong>Reload Button:</strong> Re-renders the visualization after parameter values have been changed.
+            </li>
+          </ul>
+  
+  
+      </p>
+    </div>
+  
+  </div> 
+
+</div>
+
+            <!-- /.card -->
+  <div class="card bg-gradient-primary interactive">
+    
+    <div class="card-header border-1">
+           
+  <div class="row px-4">
+  <div class = "col-md-6 col-12">
+      <!-- Rendering time -->
+      <div id="renderTimeBubbles" class=" col-12">Rendering time: 0 ms</div>
+      <div id="numberOfComp" class=" col-12">Number of hyperbolic components: 0</div>
+    </div>
+    <!-- Levý sloupec -->
+    <div class="col-12 col-md-6 row justify-content-end">
+      <!-- Slider pro průhlednost -->
+
+  <div class="d-flex align-items-center justify-content-between">
+  <label for="periodSlider2" class="form-label mb-0" style="margin-right: 10px;">Period: </label>
+  <input type="range" class="form-range" id="periodSlider2" min="1" max="10" value="4" style="max-width: 30%;">
+  <span id="periodValue2" class="badge bg-primary" style="margin-left: 10px; margin-right: 10px;">4</span>
+  <button type="button" class="btn btn-outline-dark" onclick="applyBubbles()" style="max-width: 30%; margin-top: 0;"><img src="dist/img/reload.png" style="max-height: 20px;"></button>
+</div>
+
+
+      <!-- Tlačítko Apply -->
+    </div>
+
+          <!-- Tlačítka pro zoom a reset -->
+  </div>
+</div>
+      
+                <div class="card-body" style = "display: flex; justify-content: center; padding-bottom: 15px">
+                <canvas class = "col-12 periodicBubbles" style = "background-color: aliceblue; padding: 0; max-width: 800px; max-height: 800px" height="800px" width="800px">The browser doesn't support the canvas element</canvas>  
+             <script src = "scripty/mandelbrotPeriodicBubblesWithDivisors.js"></script>
+              </div>
+              </div>
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2024 Jan Macharáček</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+
+</body>
+</html>

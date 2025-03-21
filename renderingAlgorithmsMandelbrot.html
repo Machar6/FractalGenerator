@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fractal generator | Rendering Algorithms Mandelbrot set</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.1/math.min.js"></script> 
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/sci-lg-eng-grey.png" alt="muni-sci-logo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link  text-center elevation-2">
+    <img src="dist/img/sci-lg-eng-white.png" alt="Logo SCI MUNI" class="brand-image" style = "opacity: 0.8;">
+      <span class="brand-text font-weight-light">Fractal generator</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+          <a href="./bubbles.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/bubbles1.png" alt="" width="40px"></i>
+          <p>Hyperbolic Components </p>
+            </a>
+          </li>
+          <li class="nav-item menu-close">
+          <a href="#" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/coloring.png" alt="" width="40px"></i>
+          <p>
+                Coloring Methods
+                <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./coloringMethodsJulia.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Julia set</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./coloringMethodsMandelbrot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mandelbrot set</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/algs.png" alt="" width="40px"></i>
+            <p>
+                  Rendering Algorithms
+                  <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsJulia.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Julia set</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsMandelbrot.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mandelbrot set</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <li class="nav-item">
+          <a href="./mandelbrotExploring.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/explorer1.png" alt="" width="40px"></i>
+              <p>
+                Mandelbrot set Explorer
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./mandelbrotGeneralized.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/mGen.png" alt="" width="40px"></i>
+          <p>Generalized Mandelbrot set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./juliaGeneralized.html" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/js.png" alt="" width="40px"></i>
+            <p>Generalized Julia set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./buddhabrot.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/buddha.png" alt="" width="40px"></i>
+          <p>Buddhabrot</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper px-5" style = "max-width: 1100px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Rendering Algorithms Mandelbrot set</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Rendering Algorithms Mandelbrot set</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid interactive">
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-12">
+            <div class="card card-primary collapsed-card content-section" id="etaOptim.js" >
+              <div class="card-header">
+                <h3 class="card-title">Escape Time</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  For \( z_0 = 0 \) and all \( c \), the values \( z_n \) are iteratively computed according to the formula:
+                  \[
+                  z_{n+1} = z_n^2 + c.
+                  \]
+                  The sequence is monitored to determine whether it remains bounded or escapes to infinity, based on a divergence radius \( r \), typically set to \( r = 2 \). If \( |z_n| > r \), the sequence is considered divergent. The result is expressed either as the number of iterations required for escape (referred to as the "escape time") or the maximum allowed number of iterations if the point does not escape. Points that do not escape form the Mandelbrot set.
+                </p>
+                
+                <p>
+                  To optimize the computation, a pre-check is performed to determine whether the point \( c = x + yi \) lies within the main cardioid or the period-2 component. This eliminates the need for iterations for these points. The pre-check is based on the following conditions:
+                </p>
+                
+                <ul>
+                  <li>
+                    <strong>Main Cardioid:</strong> A point lies inside the cardioid if:
+                    \[
+                    q \cdot (q + (x - 0.25)) \leq 0.25 \cdot y^2,
+                    \]
+                    where \( q = (x - 0.25)^2 + y^2 \).
+                  </li>
+                  <li>
+                    <strong>Period-2 Component:</strong> A point lies inside this component if:
+                    \[
+                    (x + 1)^2 + y^2 \leq 0.0625.
+                    \]
+                  </li>
+                </ul>
+                
+                <p>
+                  If a point satisfies either of these conditions, it is immediately classified as part of the Mandelbrot set, and no iteration is necessary. 
+                </p>
+
+                
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="mandelbrotDistanceEstimation.js" >
+              <div class="card-header">
+                <h3 class="card-title">Distance Estimation</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                  <p>
+                    The Distance Estimation Method is used to calculate an estimate of the shortest distance between a point 
+                    outside the Mandelbrot set and the set itself. This approach is based on the <b>Hubbard-Douady potential</b>, 
+                    a function that measures the "potential" of each point outside the set:
+                  </p>
+                  \[
+                  G(c) = \lim_{n \to \infty} \frac{\ln |z_n|}{2^n},
+                  \]
+                  <p>
+                    where \( z_n \) is obtained by iterating the equation \( z_{n+1} = z_n^2 + c \), starting from \( z_0 = 0 \). 
+                    This potential increases as the point \( c \) moves further away from the Mandelbrot set.
+                  </p>
+                  <p>
+                    The estimated distance \( d \) between a point \( c \) and the Mandelbrot set is given by:
+                  </p>
+                  \[
+                  d = \frac{G(c)}{|G'(c)|},
+                  \]
+                  <p>
+                    where \( |G'(c)| \) is the magnitude of the derivative of the potential \( G(c) \).
+                  </p>
+                  <p>
+                    To compute \( G'(c) \), we calculate the derivative \( z'_n \) of the iterated sequence with respect to \( c \). 
+                    Differentiating the iteration formula \( z_{n+1} = z_n^2 + c \) gives:
+                  </p>
+                  \[
+                  z'_{n+1} = 2z_n z'_n + 1,
+                  \]
+                  <p>
+                    with the initial condition \( z'_0 = 1 \). During the iteration process, both \( z_n \) and \( z'_n \) are updated, 
+                    and their magnitudes are used to estimate the distance:
+                  </p>
+                  \[
+                  d = \frac{|z_n| \ln |z_n|}{|z'_n|}.
+                  \]
+                </div>
+
+
+                
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="mandelbrotEdgeDetection.js">
+              <div class="card-header">
+                <h3 class="card-title">Edge Detection</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+                <p> The edge detection algorithm is implemented in two stages. First, we use the classic iteration method to determine how many iterations are required for a point to escape the predefined escape radius. Then, the Sobel filter is applied for edge detection. The filter uses two convolution matrices to calculate the gradient in both the horizontal and vertical directions:</p>
+
+<p> For the horizontal direction:</p>
+
+\[
+\text{sobelX} = 
+\begin{bmatrix}
+-1 & 0 & 1 \\
+-2 & 0 & 2 \\
+-1 & 0 & 1
+\end{bmatrix}
+\]
+
+<p>For the vertical direction:</p>
+
+\[
+\text{sobelY} = 
+\begin{bmatrix}
+-1 & -2 & -1 \\
+ 0 &  0 &  0 \\
+ 1 &  2 &  1
+\end{bmatrix}
+\]
+The method identifies areas where there are significant changes, indicating the presence of edges. The method works by examining the differences in intensity between neighboring points in horizontal and vertical directions, which reveals the rate of change in these areas.</p> 
+<p>The algorithm computes the gradient at each point by combining the horizontal and vertical rates of change. If the gradient exceeds a chosen threshold, the point is classified as part of an edge and is marked in black. Otherwise, it is considered part of the background and marked in white.</p> 
+<p>The result is a high-contrast image that highlights the edges of the Mandelbrot or Julia sets in black, with the rest of the image as a white background.</p>
+                
+              </div>
+            
+            </div> 
+
+            <div class="card card-primary collapsed-card content-section" id="mandelbrotRectCheckingAdvanced.js">
+              <div class="card-header">
+                <h3 class="card-title">Rectangle Checking</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  The Rectangle Checking method is an optimization technique designed to improve the efficiency of fractal calculations 
+                  by reducing the number of points that need to be processed. Instead of iterating over all points in an image, 
+                  this method divides the image into rectangles and checks whether all points on the rectangle's boundaries have 
+                  the same number of iterations \( k \). If they do, it is assumed that all points inside the rectangle share 
+                  the same iteration count, and the rectangle is filled with a corresponding color.
+              </p>
+              <p><strong>Key Steps of the Method:</strong>
+              <ol>
+                  <li>
+                      <strong>Boundary Check:</strong>  
+                      The method calculates the number of iterations for all points along the boundaries of a rectangle.  
+                      If all boundary points have the same iteration count, the rectangle is marked as homogeneous.
+                  </li>
+                  <li>
+                      <strong>Recursive Subdivision:</strong>  
+                      If the boundary points do not share the same iteration count, the rectangle is divided into four smaller rectangles.  
+                      Each smaller rectangle undergoes the same process until the rectangles reach the predefined minimum size.
+                  </li>
+                  <li>
+                      <strong>Filling Rectangles:</strong>  
+                      Homogeneous rectangles are filled with a single color based on their iteration count.  
+                      This significantly speeds up the rendering of uniform areas, such as the main cardioid or regions far from the fractal set.
+                  </li>
+              </ol>
+            </p>
+              <p>
+                  This method accelerates calculations while maintaining the desired level of detail. The user can control the level of 
+                  granularity by adjusting parameters for the initial rectangle size (determining the maximum size of rectangles) 
+                  and the minimum rectangle size (defining the smallest rectangles to be processed).
+              </p>
+              
+
+              </div>
+            
+            </div> 
+          
+            <div class="card card-primary collapsed-card content-section" id="def">
+              <div class="card-header">
+                <h3 class="card-title">Rendering algorithms for Mandelbrot set</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                  <p>
+                    Select one of the rendering algorithms for the Mandelbrot set from the dropdown menu below to explore each algorithm in detail.
+                  </p>
+
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title">Description</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="descriptionContainer">
+                
+              </div>
+            </div> 
+
+
+            <!-- Map card -->
+
+            <div class="card bg-gradient-primary interactive">
+              <div class="card-header border-1 px-4">
+              <div class="container px-4">
+    <!-- Select -->
+                <div class="form-group selector">
+                  <select class="form-control" id="scriptSelector">
+                    <option value="def" disabled selected>Select one of the rendering algorithms</option>
+                    <option value="etaOptim.js">Escape Time</option>
+                    <option value="mandelbrotDistanceEstimation.js">Distance Estimation</option>
+                    <option value="mandelbrotEdgeDetection.js">Edge Detection</option>
+                    <option value="mandelbrotRectCheckingAdvanced.js">Rectangle Checking</option>
+                  </select>
+                </div>
+                <div id="optionsContainer">
+                </div> 
+              </div>
+            </div>
+             
+                <div class="card-body" style = "display: flex; justify-content: center; padding-bottom: 15px">
+                <canvas class = "col-12 mandelbrot" style = "background-color: aliceblue; padding: 0; max-width: 800px; max-height: 800px" height="800px" width="800px">The browser doesn't support the canvas element</canvas>  
+              <script src = "scripty/loadingScriptMandelbrotAlgs.js"></script>
+              <div id="scriptContainer"></div>
+              </div>
+              </div>
+
+              <!-- /.card-body-->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2024 Jan Macharáček</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<style>
+  .content-section {
+      display: none; /* Skryje všechny oblasti na začátku */
+  }
+</style>
+<script>
+  // Funkce, která skryje všechny sekce a zobrazí tu vybranou
+  document.getElementById("scriptSelector").addEventListener("change", function() {
+      // Skrytí všech sekcí
+      var sections = document.querySelectorAll(".content-section");
+      sections.forEach(function(section) {
+          section.style.display = "none";
+      });
+
+      // Zobrazení vybrané sekce
+      var selectedSection = document.getElementById(this.value);
+      if (selectedSection) {
+          selectedSection.style.display = "block";
+      }
+  });
+
+  // Spustí funkci při načtení stránky, aby byla zobrazená sekce podle výběru
+  window.onload = function() {
+      document.getElementById("scriptSelector").dispatchEvent(new Event("change"));
+  };
+</script>
+</body>
+</html>

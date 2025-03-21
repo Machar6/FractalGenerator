@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fractal generator | Mandelbrot set Explorer</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.1/math.min.js"></script> 
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/sci-lg-eng-grey.png" alt="muni-sci-logo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link  text-center elevation-2">
+    <img src="dist/img/sci-lg-eng-white.png" alt="Logo SCI MUNI" class="brand-image" style = "opacity: 0.8;">
+      <span class="brand-text font-weight-light">Fractal generator</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+          <a href="./bubbles.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/bubbles1.png" alt="" width="40px"></i>
+          <p>Hyperbolic Components </p>
+            </a>
+          </li>
+          <li class="nav-item menu-close">
+          <a href="#" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/coloring.png" alt="" width="40px"></i>
+          <p>
+                Coloring Methods
+                <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./coloringMethodsJulia.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Julia set</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./coloringMethodsMandelbrot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mandelbrot set</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link" style = "padding-left: 10px">
+              <i class="nav-icon"><img src="dist/img/algs.png" alt="" width="40px"></i>
+                <p>
+                  Rendering Algorithms
+                  <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsJulia.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Julia set</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsMandelbrot.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mandelbrot set</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <li class="nav-item">
+          <a href="./mandelbrotExploring.html" class="nav-link active" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/explorer1.png" alt="" width="40px"></i>
+          <p>
+                Mandelbrot set Explorer
+              </p>
+            </a>
+          </li>          
+          <li class="nav-item">
+          <a href="./mandelbrotGeneralized.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/mGen.png" alt="" width="40px"></i>
+          <p>Generalized Mandelbrot set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./juliaGeneralized.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/js.png" alt="" width="40px"></i>
+          <p>Generalized Julia set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./buddhabrot.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/buddha.png" alt="" width="40px"></i>
+          <p>Buddhabrot</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper px-5" style = "max-width: 1100px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Mandelbrot set Explorer</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Mandelbrot set Explorer</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid interactive">
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-12">
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title">Mandelbrot set Explorer</h3>
+      
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+                <p>
+                  <strong>Mandelbrot set Explorer</strong> is an interactive tool designed for in-depth exploration of the Mandelbrot set. Users can zoom in and out to reveal intricate details of the fractal and pan across the complex plane to examine different regions. A red cursor marks the point of interest, allowing users to identify the period of the area it targets.
+
+                </p>
+                  <p>
+                  One of the key features of the explorer is its dynamic adjustment of the maximum number of iterations based on the zoom level. As users zoom deeper into the set, the iteration count automatically increases, ensuring a detailed and accurate visualization of the fractal's structure at every level.
+                </p>
+                <p>
+                  This interactive component offers an engaging way to explore the mathematical beauty of the Mandelbrot set, enabling users to uncover its complexity and periodic structures with ease.
+                </p>
+              </div>
+      
+            </div> 
+    
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title">Description</h3>
+      
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="descriptionContainer">
+             
+                  <p>
+                    <ul>
+                      <li>
+                        <strong>Red Dot:</strong> Located at the center of the canvas, it marks the point of interest.
+                      </li>
+                      <li>
+                        <strong>Real Part of the Centre:</strong> Coordinates of the red dot on the real axis.
+                      </li>
+                      <li>
+                        <strong>Imaginary Part of the Centre:</strong> Coordinates of the red dot on the imaginary axis.
+                      </li>
+                      <li>
+                        <strong>Rendering Time:</strong> Displays the time taken to render the visualization.
+                      </li>
+                      <li>
+                        <strong>Zoom:</strong> Indicates the zoom level.
+                      </li>
+                      <li>
+                        <strong>Max Iterations:</strong> The maximum number of iterations used in the rendering process.
+                      </li>
+                      <li>
+                        <strong>Period:</strong> The period of the point \( c \) targeted by the red dot.
+                      </li>
+                      <li>
+                        <strong>Zoom In Button:</strong> Increases the zoom level for a closer view.
+                      </li>
+                      <li>
+                        <strong>Zoom Out Button:</strong> Decreases the zoom level for a wider view.
+                      </li>
+                      <li>
+                        <strong>Reset Button:</strong> Resets the view to the default position.
+                      </li>
+                    </ul>
+      
+          
+                </p>
+              </div>
+      
+            </div> 
+            <!-- Map card -->
+
+            <div class="card bg-gradient-primary interactive">
+              <div class="card-header border-1">
+                <div class="options container">
+                <div class="row mx-auto" style="max-width:70%">
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label for="centerRe" class="form-label">Real part of the centre:</label>
+                          <input id="centerRe" type="text" class="form-control form-control-sm" placeholder="0.0" style="min-width: 150px; max-width: 250px;">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label for="centerIm" class="form-label">Imaginary part of the centre:</label>
+                          <input id="centerIm" type="text" class="form-control form-control-sm" placeholder="0.0" style="min-width: 150px; max-width: 250px;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class = "row justify-content-between">
+                       <div class = "col-12 col-sm-6">
+                       <div id="renderTime" class="">Rendereing time: 0 ms</div>
+                       <div id="zoomInfo" class="">Zoom: 1x</div>
+                       <div id="iterationInfo" class="">Max Iterations: 100</div>
+                       <div id="periodInfo">Period: N/A</div>
+                    </div>
+                    
+
+                    <div class="col-12 col-sm-6 row justify-content-end mb-0 align-items-end">
+                      <div class="col-auto">
+                        <button type="button" class="btn btn-outline-dark" id="zoomIn" style = "padding-bottom: 10px">
+                        <img src="dist/img/zoom-in.png" style = "max-height: 20px;">
+                        </button>
+                      </div>
+                      <div class="col-auto">
+                        <button type="button" class="btn btn-outline-dark" id="zoomOut" style = "padding-bottom: 10px">
+                          <img src="dist/img/zoom-out.png" style = "max-height: 20px;">
+                        </button>
+                      </div>
+                      <div class="col-auto">
+                        <button type="button" class="btn btn-outline-dark px-3 pr-0" id="resetView" style = "padding-bottom: 10px"><strong> Reset </strong></strong></button>
+                      </div>
+                    </div>
+                    </div>
+
+                  </div>
+                  </div>
+             
+                <div class="card-body" style = "display: flex; justify-content: center; padding-bottom: 15px">
+                <canvas class = "col-12 mandelbrot" style = "background-color: aliceblue; padding: 0; max-width: 800px; max-height: 800px" height="800px" width="800px">The browser doesn't support the canvas element</canvas>  
+              <script src = "scripty/mandelbrotZoom.js"></script>
+              </div>
+              </div>
+
+              <!-- /.card-body-->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2024 Jan Macharáček</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+</body>
+</html>

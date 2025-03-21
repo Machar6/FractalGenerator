@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fractal generator | Coloring Methods Julia set</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.1/math.min.js"></script> 
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/sci-lg-eng-grey.png" alt="muni-sci-logo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link  text-center elevation-2">
+    <img src="dist/img/sci-lg-eng-white.png" alt="Logo SCI MUNI" class="brand-image" style = "opacity: 0.8;">
+      <span class="brand-text font-weight-light">Fractal generator</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+          <a href="./bubbles.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/bubbles1.png" alt="" width="40px"></i>
+          <p>Hyperbolic Components </p>
+            </a>
+          </li>
+          <li class="nav-item menu-open">
+          <a href="#" class="nav-link active" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/coloring.png" alt="" width="40px"></i>
+          <p>
+                Coloring Methods
+                <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./coloringMethodsJulia.html" class="nav-link  active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Julia set</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./coloringMethodsMandelbrot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mandelbrot set</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/algs.png" alt="" width="40px"></i>
+            <p>
+                  Rendering Algorithms
+                  <i class="right fas fa-angle-left" style = "margin-top: 10px;"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsJulia.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Julia set</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./renderingAlgorithmsMandelbrot.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mandelbrot set</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          <li class="nav-item">
+          <a href="./mandelbrotExploring.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/explorer1.png" alt="" width="40px"></i>
+              <p>
+                Mandelbrot set Explorer
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./mandelbrotGeneralized.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/mGen.png" alt="" width="40px"></i>
+          <p>Generalized Mandelbrot set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./juliaGeneralized.html" class="nav-link" style = "padding-left: 10px">
+            <i class="nav-icon"><img src="dist/img/js.png" alt="" width="40px"></i>
+            <p>Generalized Julia set</p>
+            </a>
+          </li>
+          <li class="nav-item">
+          <a href="./buddhabrot.html" class="nav-link" style = "padding-left: 10px">
+          <i class="nav-icon"><img src="dist/img/buddha.png" alt="" width="40px"></i>
+          <p>Buddhabrot</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper px-5" style = "max-width: 1100px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Coloring Methods Julia set</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Coloring Methods Julia set</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid interactive">
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-12">
+            <div class="card card-primary collapsed-card content-section" id="juliaBinaryDecomposition.js" >
+              <div class="card-header">
+                <h3 class="card-title">Binary Decomposition</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  <strong>Binary Decomposition Method</strong>
+              </p>
+              <p>
+                  The binary decomposition method is a specific visualization technique where the goal is to assign a color to each point in the complex plane based on a binary condition. In the case of binary decomposition, only two colors are used, in our case, black and white.
+              </p>
+              <p>
+                  At each point in the complex plane, iterations are performed until either the escape condition is met or the maximum number of iterations \(n_{\text{max}}\) is reached. The escape condition is defined as the point exceeding the radius of divergence \(r\), which corresponds to the point "escaping" to infinity. For better computational speed, the following relation is used:
+              </p>
+              <p>
+                  \[
+                  |z_k|^2 = \operatorname{Re}(z_k)^2 + \operatorname{Im}(z_k)^2 > r^2
+                  \]
+              </p>
+              <p>
+                  where \( \operatorname{Re}(z_k) \) and \( \operatorname{Im}(z_k) \) are the real and imaginary parts of \( z_k \) after the \(k\)-th iteration.
+              </p>
+      
+              <p>
+                  The binary decomposition method assigns pixels only two colors based on a simple condition formulated as follows:
+              </p>
+              <p>
+                  \[
+                  pixel_{\text{color}} = 
+                  \begin{cases} 
+                  1, & \text{if } k < n_{\text{max}} \text{ and } \operatorname{Im}(z_k) < 0, \\ 
+                  0, & \text{otherwise}.
+                  \end{cases}
+                  \]
+              </p>
+              <p>
+                  Where \(k\) is the number of iterations performed before the radius of divergence is exceeded or \(n_{\text{max}}\) is reached.
+              </p>
+              <p>
+                  In other words, this condition tells us that if the point has escaped before reaching the maximum number of iterations and the imaginary part of \(z\) is negative, the pixel is assigned a color \(pixel_{\text{color}} = 1\) (white). In all other cases, the pixel is assigned the color \(pixel_{\text{color}} = 0\) (black).
+              </p>
+              
+              
+
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaColorDecomposition.js">
+              <div class="card-header">
+                <h3 class="card-title">Color Decomposition</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+                <p>
+                  <strong>Color Decomposition Method</strong>
+              </p>
+              <p>
+                  The color decomposition method is a more advanced visualization technique that enhances the results by combining the ETA algorithm with a sophisticated color interpretation. Instead of simply assigning black or white, the color of each pixel is determined by a combination of two key factors:
+              </p>
+              <ul>
+                  <li><strong>Number of iterations</strong> (\(n\)) it takes for a point to exceed the divergence radius (\(r\)). This value serves as the basis for color interpolation, with more iterations resulting in a distinct color.</li>
+                  <li><strong>Argument</strong> (\(\theta\)) of the final value \(z_n\), which defines the angle between the point and the positive real axis in the complex plane. This angle, normalized between 0 and 1, adds depth and variability to the color of the pixel.</li>
+              </ul>
+              <p>
+                  The method works by iterating over each point in the complex plane. During each iteration, the algorithm checks if the point has exceeded the divergence radius \(r\), and if so, it records the number of iterations (\(k\)) taken for this escape to occur. The escape-time algorithm is central to this process.
+              </p>
+              <p>
+                  The final color of each pixel is determined by interpolating three components based on the HSV (Hue, Saturation, Value) color model:
+              </p>
+              <ul>
+                  <li><strong>Hue (color):</strong> The hue is determined by the normalized iteration count (\(k/n_{\text{max}}\)), which shifts the color along the spectrum based on how many iterations the point took to escape.</li>
+                  <li><strong>Saturation:</strong> This is a fixed value of 0.8, representing the intensity of the color.</li>
+                  <li><strong>Value (brightness):</strong> The brightness is derived from the argument \(\theta\) of the final point \(z_n\), which indicates the direction of the point in the complex plane, and is normalized to the range [0, 1].</li>
+              </ul>
+              <p>
+                  The argument \(\theta\) is calculated as:
+              </p>
+              <p>
+                  \[
+                  \theta = \tan^{-1}\left(\frac{\text{Im}(z_k)}{\text{Re}(z_k)}\right),
+                  \]
+                  or \(\theta + \pi\) if \(\theta < 0\). This value is then normalized using the relation:
+              </p>
+              <p>
+                  \[
+                  \text{arg norm}(z_k) = \frac{\theta}{\pi}.
+                  \]
+              </p>
+              <p>
+                  By combining the iteration count and the argument of the final point, the color decomposition method creates a smooth, continuous gradient that reveals deeper structures in the fractal visualization, providing a richer and more detailed image than simpler methods.
+              </p>
+              
+                
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaFieldLines.js">
+              <div class="card-header">
+                <h3 class="card-title">Field Lines</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+              <p>
+                  The <strong>Field Lines</strong> method is based on comparing the rates of change of the real and imaginary components of the value \( z_k \). In this case, we focus on highlighting points where the imaginary component $z_{y}$ grows significantly faster than the real component $z_{x}$.
+              </p>
+              <p>
+                  Method checks for points where the rate of change of the imaginary component is dominant over the real component. 
+              $$|z_x| < 0{,}1 |z_{y}|,$$
+              where the constant \( 0.1 \) determines the threshold for the difference between the real and imaginary components. If the difference exceeds this value, the point is considered for highlighting. The condition is based on a threshold value, such that if the imaginary part of \( z_k \) is much larger than the real part, the point is emphasized. This is particularly useful for highlighting points where the trajectory's behavior shows strong growth in the imaginary direction compared to the real axis.
+                </p>
+                
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaEscapeTime.js">
+              <div class="card-header">
+                <h3 class="card-title">Level sets</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  <strong>The Level Sets method</strong> is based on dividing the complex plane into regions according to the number of iterations needed to determine whether a point belongs to the Mandelbrot set or not. This is a form of binary decomposition, where we examine whether the iteration count is even or odd. Each iteration naturally creates "levels," and by increasing the maximum number of iterations, we get a more precise approximation of the final set. The coloring of the points is determined by how many .
+              </p>
+              <p>
+                  The number of iterations \( k \) is treated as a binary number. For example, the number 3 is written as 11 in binary, 4 as 100, and 5 as 101. The key observation here is that for even numbers, the last digit in the binary representation is always 0, while for odd numbers, it is 1. This property can be easily used to distinguish between even and odd numbers. If the number of iterations is odd, the point is colored black, and if it's even, the point is colored white.
+              </p>
+              
+              
+              
+
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaDwellGradient.js">
+              <div class="card-header">
+                <h3 class="card-title">Gradient Mapping</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  <strong>The Gradient Mapping method</strong> is a visualization technique that focuses on using a gradient to represent the number of iterations required for a point to escape to infinity. The key idea is to compute the gradient based on the iteration counts of neighboring pixels, allowing us to visualize the rate of change of the iteration count across the complex plane.
+              </p>
+              
+              <p>
+                  To calculate the gradient between two neighboring pixels, we subtract the iteration counts of the two pixels:
+              </p>
+              
+              $$
+              \Delta \mu = \mu(k_1) - \mu(k_0)
+              $$
+              
+              <p>
+                  This difference shows how rapidly the iteration count changes between adjacent pixels and is crucial for visualizing fine details at the boundaries of the set.
+              </p>
+              
+              <p>
+                  The gradient is represented as a vector:
+              </p>
+              
+              $$
+              \mathbf{v} = (\mu_x - \mu_0, \mu_y - \mu_0, s)
+              $$
+              
+              <p>
+                  where $\mu_x$ and $\mu_y$ are the iteration counts of neighboring pixels, $\mu_0$ is the iteration count of the current pixel, and $s$ is a scaling factor that controls the strength of the gradient.
+              </p>
+              
+              <p>
+                  In the code, the positions of pixels are mapped into a one-dimensional array, and the gradient is calculated for each pixel based on its neighbors. The gradient vector $\mathbf{v}$ is then normalized to produce a unit vector $\mathbf{g}$:
+              </p>
+              
+              $$
+              \mathbf{g} = \frac{\mathbf{v}}{| \mathbf{v} |}
+              $$
+              
+              <p>
+                  The final color of each pixel is determined by the hue, calculated from the angle of the gradient vector in the complex plane. The angle is computed using the $\text{atan2}$ function:
+              </p>
+              
+              $$
+              \text{hue} = \frac{\tan^{-1}(g_1, g_2)}{2\pi}
+              $$
+              
+              <p>
+                  The saturation is set to 0 for points inside the Mandelbrot set, and 0.5 for points outside, while the value is derived from the gradient strength.
+              </p>
+              
+              <p>
+                  Additionally, logarithmic correction is applied to improve the visualization of points with high iteration counts, ensuring smoother transitions at the set's boundary:
+              </p>
+              
+              $$
+              \log_2(\log(|z|))
+              $$
+              
+              <p>
+                  This correction helps to create more detailed and smooth visualizations at the edges of regions with similar iteration counts or near the set's boundary.
+              </p>
+              
+              
+              
+
+              </div>
+            
+            </div> 
+            
+            <div class="card card-primary collapsed-card content-section" id="juliaHistogramColoring.js">
+              <div class="card-header">
+                <h3 class="card-title">Histogram Coloring</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>
+                  The Histogram Coloring method is a technique that evenly distributes colors across the visualization area 
+                  without needing to know the maximum number of iterations. The process follows 
+                  several steps:
+              </p>
+          
+              <ol>
+                  <li><b>Iteration Count Calculation:</b> For each point on the screen, the number of iterations required for the 
+                      value to exceed the divergence limit is computed. This is done using the standard escape time algorithm.
+                  </li>
+          
+                  <li><b>Histogram Creation:</b> Once the iteration counts for each point are known, a histogram is created that 
+                      records how often each iteration count occurs. This histogram reflects the frequency of occurrence of 
+                      different iteration counts across the visualization area.
+                  </li>
+          
+                  <li><b>Cumulative Distribution Function (CDF) Calculation:</b> After constructing the histogram, the cumulative 
+                      distribution function (CDF) is computed. The CDF indicates how many pixels reached a specific iteration 
+                      count within a given range. This ensures that colors are distributed according to the frequency of iteration 
+                      counts, so the color mapping reflects different intensities across the area.
+                  </li>
+          
+                  <li><b>CDF Normalization:</b> The cumulative distribution function is then normalized to values in the range 
+                      \([0, 1]\), allowing each pixel to be assigned an appropriate color based on its value in the CDF.
+                  </li>
+          
+                  <li><b>Color Assignment:</b> Each pixel is assigned a color based on its value in the normalized CDF. Colors 
+                      are assigned using a color map, which converts CDF values into hues, while saturation and brightness remain 
+                      constant. If the iteration count for a point reaches the maximum number, that point is displayed in black.
+                  </li>
+              </ol>
+
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="def">
+              <div class="card-header">
+                <h3 class="card-title">Coloring Methods for Julia set</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                  <p>
+                    Select one of the coloring methods for the Julia set from the dropdown menu below to explore each method in detail.
+                  </p>
+
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaSymmAndMultithreading.js">
+              <div class="card-header">
+                <h3 class="card-title">Multithreading</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+
+                <p>The <strong>Multithreading</strong> method uses principles of parallel computation, where the task is divided into smaller parts (called <em>threads</em>) that are processed simultaneously. JavaScript is a single-threaded language, meaning it can only execute one operation at a time (one line of code). However, multithreading can be achieved using functions like <em>Web Workers</em>, which allow parallel processes to run. 
+                  <p>
+                  In this method, the main idea is to divide the displayed complex plane into several sections (<em>chunks</em>), with each worker processing points only from its assigned area.</p>
+                </p>
+                
+
+              </div>
+            
+            </div> 
+            <div class="card card-primary collapsed-card content-section" id="juliaSmoothColoring.js">
+              <div class="card-header">
+                <h3 class="card-title">Smooth Coloring</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="methodContainer">
+
+                <p>Smooth Coloring is a technique designed to overcome the visual jumps that can occur when assigning colors based on how quickly points escape the Mandelbrot set. In the standard approach, points are colored based on the number of iterations required to exceed the divergence limit, which can often lead to abrupt color transitions due to the integer nature of iteration counts. The Smooth Coloring method aims to provide smoother color transitions, resulting in a more visually fluid representation.</p>
+    
+                <p>Instead of using the integer number of iterations, the method calculates a normalized iteration count \( \nu(z) \) for each point. This approach is based on the potential function \( \phi(z) \), which describes the growth rate of the values in the sequence and ensures smooth coloring. The formula for \( \nu(z) \) is:</p>
+                
+                $$ 
+                \nu(z) = n - \log_P\left(\frac{\log |z_n|}{\log(r)}\right),
+                $$
+            
+                where \( n \) is the number of iterations until the point \( z_n \) exceeds the divergence limit, and \( r = 2\) is the limit radius for divergence. Variable \( P \) is the exponent for \( z \rightarrow z^P + c \).
+
+                This formula ensures that \( \nu(z) \) is a real number in the interval \([0, 1)\), allowing for smoother color gradients without the discontinuities of integer-based iteration counts.
+            
+                <p>By utilizing this normalized value, Smooth Coloring generates more subtle transitions between colors, providing a clearer and more refined visualization.</p>
+            
+
+              </div>
+            
+            </div> 
+            
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title">Description</h3>
+            
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+
+              </div>
+              <!-- /.card-header -->
+              <div class = "card-body" id="descriptionContainer">
+                
+        
+              </div>
+            
+            </div> 
+            <!-- Map card -->
+
+            <div class="card bg-gradient-primary interactive">
+              <div class="card-header border-1 px-4">
+              <div class="container px-4">
+    <!-- Select -->
+                <div class="form-group selector">
+                  <select class="form-control" id="scriptSelector">
+                    <option value="def" disabled selected>Select one of the coloring methods</option>
+                    <option value="juliaBinaryDecomposition.js">Binary Decomposition</option>
+                    <option value="juliaColorDecomposition.js">Color Decomposition</option>
+                    <option value="juliaFieldLines.js">Field Lines</option>
+                    <option value="juliaEscapeTime.js">Level sets</option>
+                    <option value="juliaDwellGradient.js">Gradient Mapping</option>
+                    <option value="juliaHistogramColoring.js">Histogram Coloring</option>
+                    <option value="juliaSmoothColoring.js">Smooth Coloring</option>
+                    <option value="juliaSymmAndMultithreading.js">Multithreading</option>
+                  </select>
+                </div>
+                <div id="optionsContainer">
+                </div> 
+              </div>
+            </div>
+             
+                <div class="card-body" style = "display: flex; justify-content: center; padding-bottom: 15px">
+                <canvas class = "col-12 mandelbrot" style = "background-color: aliceblue; padding: 0; max-width: 800px; max-height: 800px" height="800px" width="800px">The browser doesn't support the canvas element</canvas>  
+              <script src = "scripty/loadingScriptJulia.js"></script>
+              <div id="scriptContainer"></div>
+              </div>
+              </div>
+
+              <!-- /.card-body-->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer text-center">
+    <strong>Copyright &copy; 2024 Jan Macharáček</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<style>
+  .content-section {
+      display: none; /* Skryje všechny oblasti na začátku */
+  }
+</style>
+<script>
+  // Funkce, která skryje všechny sekce a zobrazí tu vybranou
+  document.getElementById("scriptSelector").addEventListener("change", function() {
+      // Skrytí všech sekcí
+      var sections = document.querySelectorAll(".content-section");
+      sections.forEach(function(section) {
+          section.style.display = "none";
+      });
+
+      // Zobrazení vybrané sekce
+      var selectedSection = document.getElementById(this.value);
+      if (selectedSection) {
+          selectedSection.style.display = "block";
+      }
+  });
+
+  // Spustí funkci při načtení stránky, aby byla zobrazená sekce podle výběru
+  window.onload = function() {
+      document.getElementById("scriptSelector").dispatchEvent(new Event("change"));
+  };
+</script>
+</body>
+</html>
