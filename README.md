@@ -5,7 +5,7 @@ Welcome to the **Fractal Generator**, an advanced visualization tool designed to
 Whether you are a **mathematician**, a **student**, a **developer**, or simply curious about fractals, this tool lets you dive deep into their properties, rendering techniques, and mathematical intricacies.  
 It is intended both for educational purposes and for anyone interested in experimenting with fractal visualization.
 
-Feel free to explore the code, run the application, and<sub>sub</sub> customize it to suit your needs.  
+Feel free to explore the code, run the application, and customize it to suit your needs.  
 **Contributions and feedback are welcome!**
 
 # Fundamentals of Fractal Theory
@@ -27,7 +27,7 @@ This sequence of values `{z_0, z_1, z_2, ... }` is called the **orbit** of `z_0`
 The behavior of an orbit can be classified into three main types based on the iteration process:
 
 - **Convergence**: If the sequence of iterated values `{z_n}` converges to a fixed point.
-- **Divergence**: If the sequence `{z<sub>n</sub>}` tends to infinity as `n -> ∞`.
+- **Divergence**: If the sequence `{z_n}` tends to infinity as `n -> ∞`.
 - **Periodicity**: If the sequence `{z_n}` starts repeating itself after a certain number of iterations.
 
 ---
@@ -49,16 +49,16 @@ In the Generalized Mandelbrot set, starting from `z_0 = 0`, we iterate the funct
 `z_{n+1} = z_n^d + c`
 
 for each value of c in the complex plane.  
-- If the resulting sequence {z_n} **remains bounded** after a set number of iterations, then the point c belongs to the Generalized Mandelbrot set.
-- If the sequence **diverges** (i.e., |z_n| -> ∞), then c does not belong to the set.
+- If the resulting sequence `{z_n}` **remains bounded** after a set number of iterations, then the point `c` belongs to the Generalized Mandelbrot set.
+- If the sequence **diverges** `(i.e., |z_n| -> ∞)`, then c does not belong to the set.
 
 ### Generalized Julia Set
 
-For the Generalized Julia set, we keep c **fixed** and iterate the function:
+For the Generalized Julia set, we keep `c` **fixed** and iterate the function:
 
-z_{n+1} = z_n^d + c
+`z_{n+1} = z_n^d + c`
 
-for different initial points z_0.  
-The structure of the Julia set depends heavily on the value of c, showing rich and complex behavior.
+for different initial points `z_0`.  
+The structure of the Julia set depends heavily on the value of `c`, showing rich and complex behavior.
 
 ---
