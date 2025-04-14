@@ -14,7 +14,7 @@ Feel free to explore the code, run the application, and customize it to suit you
 
 The iterating process begins with a complex function of the form:
 
-z_{n+1} = f(z_n)
+`z_{n+1} = f(z_n)`
 
 An initial value z_0 is chosen, and the function is applied iteratively:
 
