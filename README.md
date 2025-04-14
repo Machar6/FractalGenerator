@@ -44,25 +44,21 @@ where d ∈ Q and c is a complex constant.
 
 ### Generalized Mandelbrot Set
 
-In the Generalized Mandelbrot set, starting from \( z_0 = 0 \), we iterate the function:
+In the Generalized Mandelbrot set, starting from z_0 = 0, we iterate the function:
 
-\[
 z_{n+1} = z_n^d + c
-\]
 
-for each value of \( c \) in the complex plane.  
-- If the resulting sequence \( \{ z_n \} \) **remains bounded** after a set number of iterations, then the point \( c \) belongs to the Generalized Mandelbrot set.
-- If the sequence **diverges** (i.e., \( |z_n| \to \infty \)), then \( c \) does not belong to the set.
+for each value of c in the complex plane.  
+- If the resulting sequence {z_n} **remains bounded** after a set number of iterations, then the point c belongs to the Generalized Mandelbrot set.
+- If the sequence **diverges** (i.e., |z_n| -> ∞), then c does not belong to the set.
 
 ### Generalized Julia Set
 
-For the Generalized Julia set, we keep \( c \) **fixed** and iterate the function:
+For the Generalized Julia set, we keep c **fixed** and iterate the function:
 
-\[
 z_{n+1} = z_n^d + c
-\]
 
-for different initial points \( z_0 \).  
-The structure of the Julia set depends heavily on the value of \( c \), showing rich and complex behavior.
+for different initial points z_0.  
+The structure of the Julia set depends heavily on the value of c, showing rich and complex behavior.
 
 ---
