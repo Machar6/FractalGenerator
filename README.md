@@ -71,36 +71,85 @@ This section focuses on identifying and analyzing periodic regions within the Ma
 It provides tools to locate **hyperbolic components**, study their **bifurcation behavior**, and understand their role in fractal structures. Techniques such as **Newton's method** are employed for precise localization.
 
 Scripts:
-- ([unitToCardioid.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/unitToCardioid.js)
-- ([mandelbrotAttachedPointsVisual.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotAttachedPointsVisual.js)
-- ([mandelbrotPeriodicBubblesWithDivisors.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotPeriodicBubblesWithDivisors.js)
-## Coloring Methods
+- [unitToCardioid.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/unitToCardioid.js)
+- [mandelbrotAttachedPointsVisual.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotAttachedPointsVisual.js)
+- [mandelbrotPeriodicBubblesWithDivisors.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotPeriodicBubblesWithDivisors.js)
+## Coloring Methods ([coloringMethodsJulia.html](https://github.com/Machar6/FractalGenerator/blob/main/coloringMethodsJulia.html), [coloringMethodsMandelbrot.html](https://github.com/Machar6/FractalGenerator/blob/main/coloringMethodsMandelbrot.html))
 
 Explore a variety of coloring techniques that enhance the visual representation of fractals.  
 From **binary decomposition** and **gradient mapping** to **smooth** and **continuous coloring**, this section ensures detailed and aesthetically pleasing visualizations of complex structures.
 
-## Rendering Algorithms
+Scripts:
+- Julia sets
+  - [juliaBinaryDecomposition.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaBinaryDecomposition.js)
+  - [juliaColorDecomposition.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaColorDecomposition.js)
+  - [juliaFieldLines.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaFieldLines.js)
+  - [juliaEscapeTime.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaEscapeTime.js)
+  - [juliaDwellGradient.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaDwellGradient.js)
+  - [juliaHistogramColoring.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaHistogramColoring.js)
+  - [juliaSymmAndMultithreading.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaSymmAndMultithreading.js)
+  - [juliaSmoothColoring.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaSmoothColoring.js)
+- Mandelbrot set
+  - [mandelbrotBinaryDecomposition.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotBinaryDecomposition.js)
+  - [mandelbrotColorDecomposition.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotColorDecomposition.js)
+  - [mandelbrotFieldLines.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotFieldLines.js)
+  - [mandelbrotEscapeTime.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotEscapeTime.js)
+  - [mandelbrotDwellGradient.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotDwellGradient.js)
+  - [mandelbrotHistogramColoring.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotHistogramColoring.js)
+  - [mandelbrotSmoothColoring.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotSmoothColoring.js)
+  - [mandelbrotSymmAndMultithreading.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotSymmAndMultithreading.js)
+
+## Rendering Algorithms ([renderingAlgorithmsJulia.html](https://github.com/Machar6/FractalGenerator/blob/main/renderingAlgorithmsJulia.html), [renderingAlgorithmsMandelbrot.html](https://github.com/Machar6/FractalGenerator/blob/main/renderingAlgorithmsMandelbrot.html))
 
 Dive into advanced methods for generating fractals efficiently.  
 This section features algorithms like **escape time methods**, **edge detection**, and **rectangle checking**, all optimized for **speed** and **accuracy** in fractal rendering.
 
-## Mandelbrot Set Explorer
+Scripts:
+- Julia sets
+  - [juliaEscapeTimeAlg.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaEscapeTimeAlg.js)
+  - [juliaDistanceEstimation.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaDistanceEstimation.js)
+  - [juliaEdgeDetection.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaEdgeDetection.js)
+  - [juliaRemaping.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaRemaping.js)
+  - [juliaRectChecking.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaRectChecking.js)
+  - [juliaMIIM.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaMIIM.js)
+
+- Mandelbrot set
+  - [etaOptim.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/etaOptim.js)
+  - [mandelbrotDistanceEstimation.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotDistanceEstimation.js)
+  - [mandelbrotEdgeDetection.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotEdgeDetection.js)
+  - [mandelbrotRectCheckingAdvanced.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotRectCheckingAdvanced.js)
+    
+## Mandelbrot Set Explorer ([mandelbrotExploring.html](https://github.com/Machar6/FractalGenerator/blob/main/mandelbrotExploring.html))
 
 A dedicated section for the classical **Mandelbrot set**, allowing users to explore its intricate patterns in depth.  
 It includes **zoom functionality** and tools to analyze the set's **boundary properties**, **self-similarity**, and fascinating details.
 
-## Generalized Mandelbrot Set
+Scripts:
+- [mandelbrotZoom.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotZoom.js)
+ 
+## Generalized Mandelbrot Set ([mandelbrotGeneralized.html](https://github.com/Machar6/FractalGenerator/blob/main/mandelbrotGeneralized.html))
 
 Expand your understanding of fractals with the **generalized Mandelbrot set** for arbitrary exponents and parameters.  
 This section demonstrates how the classical set transforms under varying mathematical formulations.
 
-## Generalized Julia Set
+Scripts:
+- [mandelbrotGeneralized.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotGeneralized.js)
+  
+## Generalized Julia Set ([juliaGeneralized.html](https://github.com/Machar6/FractalGenerator/blob/main/juliaGeneralized.html))
 
 Delve into the **generalized Julia sets**, which extend beyond traditional definitions.  
 This section includes support for various functions like **exponential** and **sinusoidal mappings**, providing insight into their unique structures and behaviors.
 
-## Buddhabrot
+Scripts:
+- [generalized_julia.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/generalized_julia.js)
+- [juliaSinus.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaSinus.js)
+- [juliaCosinus.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaCosinus.js)
+- [juliaExponencial.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/juliaExponencial.js)
+
+## Buddhabrot ([buddhabrot.html](https://github.com/Machar6/FractalGenerator/blob/main/buddhabrot.html))
 
 A stunning alternative visualization of the **Mandelbrot set**, the **Buddhabrot** emphasizes points in the escape orbit.  
 This section enables users to generate this artistic representation and examine the dynamic paths of points escaping to infinity.
 
+Scripts:
+- [buddhabrotV2.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/buddhabrotV2.js)
