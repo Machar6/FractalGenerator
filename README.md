@@ -62,14 +62,18 @@ for different initial points `z_0`.
 The structure of the Julia set depends heavily on the value of `c`, showing rich and complex behavior.
 
 ---
-https://github.com/Machar6/FractalGenerator/edit/main/README.md
+
 # Application Sections
 
-## Hyperbolic Components (**[bubbles.html](https://github.com/Machar6/FractalGenerator/blob/main/bubbles.html)**)
+## Hyperbolic Components ([bubbles.html](https://github.com/Machar6/FractalGenerator/blob/main/bubbles.html))
 
 This section focuses on identifying and analyzing periodic regions within the Mandelbrot set.  
 It provides tools to locate **hyperbolic components**, study their **bifurcation behavior**, and understand their role in fractal structures. Techniques such as **Newton's method** are employed for precise localization.
 
+Scripts:
+- ([unitToCardioid.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/unitToCardioid.js)
+- ([mandelbrotAttachedPointsVisual.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotAttachedPointsVisual.js)
+- ([mandelbrotPeriodicBubblesWithDivisors.js](https://github.com/Machar6/FractalGenerator/blob/main/scripty/mandelbrotPeriodicBubblesWithDivisors.js)
 ## Coloring Methods
 
 Explore a variety of coloring techniques that enhance the visual representation of fractals.  
